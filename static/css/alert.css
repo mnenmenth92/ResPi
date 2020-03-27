@@ -1,0 +1,100 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 2px solid rgb(212, 52, 52);
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 10;
+    color: #b3b3b3;
+    background-color: rgb(24, 24, 24);
+    width: 80%;
+    /* max-width: 90%; */
+}
+
+.modal i {
+    font-size: 24px;
+    display: inline-block;
+    position: absolute;
+    color: #b93737;
+    top: 18%;
+    right: 5%;
+}
+
+
+.lumbar-popup {
+    top: 20%;
+    height: 50px;
+    text-align: center;
+    line-height: 45px;
+    font-size: 22px;
+}
+
+.lumbar-popup-icon {
+    font-size: 10px;
+}
+
+.massage-popup-icon {
+    font-size: 30px;
+}
+
+
+
+
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 10px 15px;
+}
+
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}

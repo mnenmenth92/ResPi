@@ -1,0 +1,35 @@
+.advance__massage__area {
+    display: none;
+    /* display: block; */
+    text-align: center;
+    height: 30vh;
+    width: 90vw;
+    margin: 0 auto;
+    margin-top: 5vh;
+}
+
+.am-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.am-button {
+    display: inline;
+    font-size: 30px;
+    border-radius: 50%;
+}
+
+.am-hPa {
+    display: inline;
+    margin: 0 7vw;
+    font-size: 22px;
+}
+
+@media (max-width : 320px) {
+    .am-button {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+    }
+}
