@@ -5,8 +5,9 @@ from events import sio
 
 
 STATIC_FILES = {
-    '/': 'static/html/optivent.html',
-    '/optivent.html': 'static/html/optivent.html',
+    '/': 'static/html/TV.html',
+    '/TV.html': 'static/html/TV.html',
+    '/AC.html': 'static/html/AC.html',
     '/static': 'static'
 
 }
