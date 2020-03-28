@@ -76,3 +76,4 @@ function handleButtonAfterRestart() {
   // console.log(`XOR: ${xor(massageSequenceActive, massageSequenceRunning)}`);
 
 }
+

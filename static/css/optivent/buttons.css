@@ -34,3 +34,42 @@
   border: 1px solid rgb(0, 255, 157);
   color: rgb(0, 255, 157);
 }
+
+
+.TV_buttons {
+    /* display: none; */
+    display: block;
+    text-align: center;
+    height: 30vh;
+    width: 90vw;
+    margin: 0 auto;
+    margin-top: 10vh;
+}
+
+.am-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.am-button {
+    display: inline;
+    font-size: 30px;
+    border-radius: 50%;
+}
+
+.am-hPa {
+    display: inline;
+    margin: 0 10vw;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+@media (max-width : 320px) {
+    .am-button {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+    }
+}

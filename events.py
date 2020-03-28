@@ -13,6 +13,12 @@ sio = socketio.Server(async_mode='eventlet')
 # optivent/ fan handling:
 fan_driver = FanDriver()
 
+
+
+@sio.event
+def Increment(sid):
+    print("=======================\nincrement\n+++++++++++++++++++")
+
 @sio.event
 def actual_page(sid, data):
     print('Selected page: ' + data)
