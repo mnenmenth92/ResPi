@@ -54,6 +54,7 @@ border: none;
 transition: all 0.1s ease 0s;
 font-size: 48px;
 font-weight: bold;
+outline:none
 
 }
 
@@ -77,6 +78,7 @@ transition: all 0.1s ease 0s;
 font-size: 32px;
 font-weight: bold;
  Margin : 0 20px;
+ outline:none
 }
 
 .link_button:active {
@@ -105,6 +107,7 @@ border: none;
 transition: all 0.1s ease 0s;
 font-size: 32px;
 font-weight: bold;
+outline:none
 
 }
 
@@ -149,5 +152,6 @@ body {
   /* width: 100%; */
   background: linear-gradient(#383838, #616060);
   color: white;
+    user-select: none;
 }
 
