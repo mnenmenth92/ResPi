@@ -1,5 +1,5 @@
-const btn_plus = document.querySelector('.plus');
-const btn_minus = document.querySelector('.minus');
+const btn_plus = document.querySelector('.plus_button');
+const btn_minus = document.querySelector('.minus_button');
 
 btn_plus.addEventListener('click', function () {
   console.log('Klinąłeś plus')

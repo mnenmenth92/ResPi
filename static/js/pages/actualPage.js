@@ -1,1 +1,0 @@
-socket.emit('actual_page', document.title);

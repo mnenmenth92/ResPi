@@ -1,0 +1,81 @@
+.selector_AC {
+    /* display: none; */
+    display: block;
+    text-align: center;
+    height: 30vh;
+    width: 90vw;
+    margin: 0 auto;
+    margin-top: 15vh;
+    /*display: inline;*/
+}
+
+.plus_button {
+display: inline;
+color: #383838 !important;
+text-transform: uppercase;
+text-decoration: none;
+background: #81a2e3;
+padding: 10px;
+border-radius: 5px;
+border: none;
+transition: all 0.4s ease 0s;
+font-size: 48px;
+font-weight: bold;
+  width: 20%;
+
+
+
+
+}
+
+.minus_button {
+display: inline;
+color: #383838 !important;
+text-transform: uppercase;
+text-decoration: none;
+background: #81a2e3;
+padding: 10px;
+border-radius: 5px;
+border: none;
+transition: all 0.4s ease 0s;
+font-size: 48px;
+font-weight: bold;
+  width: 20%;
+
+
+}
+
+.Value_indicator {
+display: inline;
+color: #81a2e3;
+font-size: 24px;
+font-weight: bold;
+
+
+
+}
+
+
+.title {
+text-align: center;
+height: 10vh;
+width: 90vw;
+position: relative;
+width: 100%;
+top: 10px;
+font-size: 46px;
+color: #81a2e3;
+
+font-weight: bold;
+
+}
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 95vh;
+  /* width: 100%; */
+  background: linear-gradient(#383838, #616060);
+  color: white;
+}
+
