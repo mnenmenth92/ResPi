@@ -47,7 +47,7 @@ display: inline;
 color: #383838 !important;
 text-transform: uppercase;
 text-decoration: none;
-background: #81a2e3;
+background: #fae5b1;
 padding: 10px;
 border-radius: 20px;
 border: none;
@@ -70,7 +70,7 @@ display: inline;
 color: #383838 !important;
 text-transform: uppercase;
 text-decoration: none;
-background: #81a2e3;
+background: #fae5b1;
 padding: 10px;
 border-radius: 20px;
 border: none;
@@ -100,7 +100,7 @@ height: 80px;
 color: #383838 !important;
 text-transform: uppercase;
 text-decoration: none;
-background: #81a2e3;
+background: #fae5b1;
 padding: 10px;
 border-radius: 20px;
 border: none;
@@ -122,7 +122,7 @@ background: #b55071;
 
 .Value_indicator {
 display: inline;
-color: #81a2e3;
+color: white;
 font-size: 24px;
 font-weight: bold;
 width: 40vw;
@@ -139,7 +139,8 @@ position: relative;
 width: 100%;
 
 font-size: 46px;
-color: #81a2e3;
+color: white;
+
 
 font-weight: bold;
 

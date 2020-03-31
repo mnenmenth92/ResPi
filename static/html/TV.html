@@ -1,28 +1,14 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-
+  <link href="static/css/TV.css" rel="stylesheet">
   <script src="static/js/lib/jquery.min.js" type="text/javascript"></script>
   <script src="static/js/lib/socket.io.slim.js" type="text/javascript"></script>
 
-
-  <link href="static/css/style.css" rel="stylesheet" type="text/css" />
-  <link href="static/css/alert.css" rel="stylesheet" type="text/css" />
-  <link href="static/css/optivent/buttons.css" rel="stylesheet" type="text/css" />
-  <link href="static/css/popup-info.css" rel="stylesheet" type="text/css" />
-  <link href="static/css/fontawesome/css/all.css" rel="stylesheet" type="text/css" />
-  <link href="static/css/googlefonts/fonts.css" rel="stylesheet" type="text/css">
-
-
-  <title>TV</title>
-
-
-
-</head>
+  </head>
 
 <body>
 
@@ -33,51 +19,40 @@
   </header>
 
 
-  <div class="modal" id="modal">
+    <section class="selector_AC">
 
-    <div class="modal-body">
-    </div>
-    <i class="fas fa-info massage-popup-icon"></i>
-  </div>
-  <div id="overlay"></div>
-
-
-    <section class="TV_buttons">
-
-    <p class="am-title"></p>
-
-    <button value="monostable" id="uba_inflate" class="am-button"><i class="fas fa-plus"></i></button>
-    <p class="am-hPa">UBA</p>
-    <button value="monostable" id="uba_deflate" class="am-button"><i class="fas fa-minus"></i></button>
-
+  <button class="button minus_button">-</button>
+  <p class="Value_indicator">Value</p>
+  <button class="button plus_button">+</button>
   </section>
 
 
-
-  <button class="optivent-button" id="optivent"></button>
-<!--  <button class="test-button5" id="testbut"></button>-->
-
-
-  <script src="static/js/pages/commonGlobalVariables.js"></script>
-  <script src="static/js/pages/optivent/globalVariables.js" type="text/javascript"></script>
-  <script src="static/js/pages/getMessagesText.js"></script>
-
-  <script src="static/js/pages/optivent/optivent-alerts.js" type="text/javascript"></script>
-  <script src="static/js/pages/alert.js"></script>
-  <script src="static/js/pages/optivent/optivent-button.js" type="text/javascript"></script>
-    <script src="static/js/pages/optivent/am-button.js" type="text/javascript"></script>
-  <script src="static/js/pages/optivent/optivent-events.js" type="text/javascript"></script>
+  <header>
+    <div class="title">
+      <p>RATE</p>
+    </div>
+  </header>
 
 
-  <script src="static/js/pages/optivent/optivent-main.js" type="text/javascript"></script>
+    <section class="selector_AC">
 
+  <button class="button minus_rate">-</button>
+  <p class="Value_indicator">Value</p>
+  <button class="button plus_rate">+</button>
+  </section>
+
+    <section class="start_area">
+    <button class="button_start">START</button>
+  </section>
 
     <section class="menu">
-      <a href="/TV.html"><button> TV </button></a>
-      <a href="/AC.html"><button> AC </button></a>
+      <a href="/TV.html" class = "no_decoration_link"><button  class = "link_button"> TV </button></a>
+      <a href="/AC.html" class = "no_decoration_link"><button  class = "link_button"> AC </button ></a>
 
     </section>
 
+
+  <script src="static/js/TV.js"></script>
 
 </body>
 

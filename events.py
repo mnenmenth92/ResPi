@@ -13,39 +13,52 @@ sio = socketio.Server(async_mode='eventlet')
 # optivent/ fan handling:
 fan_driver = FanDriver()
 
-
+# AC events
+@sio.event
+def inc_ac(sid):
+    print('inc_ac')
 
 @sio.event
-def Increment(sid):
-    print("=======================\nincrement\n+++++++++++++++++++")
+def dec_ac(sid):
+    print('dec_ac')
 
 @sio.event
-def actual_page(sid, data):
-    print('Selected page: ' + data)
-    global_data.current_site = data
-
+def inc_ac_rate(sid):
+    print('inc_ac_rate')
 
 @sio.event
-def run_optivent(sid):
-    print('Button True')
-    # fan_driver.set_state(True) # old version
-    fan_driver.run_in_loop()
+def dec_ac_rate(sid):
+    print('dec_ac_rate')
 
 @sio.event
-def stop_optivent(sid):
-    print('Button False')
-    # fan_driver.set_state(False) # old version
-    fan_driver.stop_loop()
+def start_ac(sid):
+    print('start_ac')
 
+# TV events
+@sio.event
+def inc_tv(sid):
+    print('inc_tv')
 
 @sio.event
-def get_massages(sid):
-    print("get massages")
+def dec_tv(sid):
+    print('dec_tv')
 
-    sio.emit('massages_resp', data={'names': [], 'pressure': 0, 'current': 'NoMassage',
-                                    'intensity': 1, 'massage_is_running': False,
-                                    'massage_active': False})
+@sio.event
+def inc_tv_rate(sid):
+    print('inc_tv_rate')
 
+@sio.event
+def dec_tv_rate(sid):
+    print('dec_tv_rate')
+
+@sio.event
+def start_tv(sid):
+    print('start_tv')
+
+
+
+
+#example
 @sio.event
 def optivent_status(sid):
     print('Current fan status ' + str(fan_driver.current_state))
