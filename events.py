@@ -7,8 +7,8 @@ import eventlet
 eventlet.monkey_patch()
 sio = socketio.Server(async_mode='eventlet')
 
-
-
+# global data init
+global_data = global_data.global_data(sio)  # maslo maslane
 
 # optivent/ fan handling:
 fan_driver = FanDriver()
@@ -16,46 +16,60 @@ fan_driver = FanDriver()
 # AC events
 @sio.event
 def inc_ac(sid):
-    print('inc_ac')
+   global_data.inc_ac()
 
 @sio.event
 def dec_ac(sid):
-    print('dec_ac')
+    global_data.dec_ac()
 
 @sio.event
 def inc_ac_rate(sid):
-    print('inc_ac_rate')
+    global_data.inc_ac_rate()
 
 @sio.event
 def dec_ac_rate(sid):
-    print('dec_ac_rate')
+    global_data.dec_ac_rate()
 
 @sio.event
 def start_ac(sid):
-    print('start_ac')
+    print('ac: ' + str(global_data.ac_value))
+    print('ac rate: ' + str(global_data.ac_rate))
 
 # TV events
 @sio.event
 def inc_tv(sid):
-    print('inc_tv')
+   global_data.inc_tv()
 
 @sio.event
 def dec_tv(sid):
-    print('dec_tv')
+    global_data.dec_tv()
 
 @sio.event
 def inc_tv_rate(sid):
-    print('inc_tv_rate')
+    global_data.inc_tv_rate()
 
 @sio.event
 def dec_tv_rate(sid):
-    print('dec_tv_rate')
+    global_data.dec_tv_rate()
 
 @sio.event
 def start_tv(sid):
-    print('start_tv')
+    print('tv: ' + str(global_data.tv_value))
+    print('tv rate: ' + str(global_data.tv_rate))
 
+# status
+@sio.event
+def send_status_ac(sid):
+    sio.emit('ac_value', global_data.ac_value)
+    sio.emit('ac_rate', global_data.ac_rate)
+    # ToDo: START status
 
+@sio.event
+
+def send_status_tv(sid):
+    sio.emit('tv_value', global_data.tv_value)
+    sio.emit('tv_rate', global_data.tv_rate)
+    # ToDo: START status
 
 
 #example
