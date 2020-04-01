@@ -6,6 +6,7 @@ const btn_minus_rate = document.querySelector('.minus_rate');
 const btn_start = document.querySelector('.button_start');
 const ind_val = document.querySelector('.current_value')
 const ind_rate = document.querySelector('.current_rate')
+var start_state = false
 
 btn_plus.addEventListener('click', function () {
   console.log('tv inc')
@@ -30,7 +31,21 @@ btn_minus_rate.addEventListener('click', function () {
 
 btn_start.addEventListener('click', function () {
   console.log('START')
-  socket.emit('start_tv')
+
+    start_state= !start_state;
+  console.log(start_state)
+  if(start_state){
+        btn_start.classList.add('active');
+      socket.emit('start_tv')
+      btn_start.textContent = 'STOP'
+  }
+  else{
+    btn_start.classList.remove('active');
+    socket.emit('stop_action')
+    btn_start.textContent = 'START'
+  }
+
+
 })
 
 socket.on('tv_value', (data) => {

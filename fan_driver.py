@@ -4,15 +4,18 @@ import time
 
 class FanDriver:
 
-    def __init__(self):
+    def __init__(self, global_data):
         self.current_state = False
         self.fan_pin = fan_pin
         self.GPIO = GPIO
         self.GPIO.setmode(self.GPIO.BOARD)
         self.GPIO.setup(self.fan_pin, self.GPIO.OUT)
         # time config
-        self.time_on = 4
-        self.time_off = 2
+        self.time_on = 1
+        self.time_off = 1
+        # global data
+        self.global_data = global_data
+
 
 
     def set_state(self, boolean_value):
@@ -23,8 +26,16 @@ class FanDriver:
             self.GPIO.output(self.fan_pin, self.GPIO.LOW)
 
     def run_in_loop(self):
+        # loop run flag
         self.current_state = True
 
+        # get global data
+        self.time_on = self.global_data.inflation_time
+        self.time_off = self.global_data.deflation_time
+        print('inflate time: ' + str(self.time_on))
+        print('deflate time: ' + str(self.time_off))
+
+        # loop init
         state = 'high'
         loop_started = time.time()
 

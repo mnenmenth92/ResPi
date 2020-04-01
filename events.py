@@ -7,11 +7,19 @@ import eventlet
 eventlet.monkey_patch()
 sio = socketio.Server(async_mode='eventlet')
 
+
 # global data init
 global_data = global_data.global_data(sio)  # maslo maslane
 
+
 # optivent/ fan handling:
-fan_driver = FanDriver()
+fan_driver = FanDriver(global_data)
+
+# common events
+@sio.event
+def stop_action(sid):
+    print('stopped')
+    fan_driver.stop_loop()
 
 # AC events
 @sio.event
@@ -32,8 +40,10 @@ def dec_ac_rate(sid):
 
 @sio.event
 def start_ac(sid):
-    print('ac: ' + str(global_data.ac_value))
-    print('ac rate: ' + str(global_data.ac_rate))
+    print('AC started')
+    fan_driver.stop_loop()  # stop previous loop if running
+    global_data.calc_AC_times()
+    fan_driver.run_in_loop()
 
 # TV events
 @sio.event
@@ -54,14 +64,17 @@ def dec_tv_rate(sid):
 
 @sio.event
 def start_tv(sid):
-    print('tv: ' + str(global_data.tv_value))
-    print('tv rate: ' + str(global_data.tv_rate))
+    print('TV started')
+    fan_driver.stop_loop()  # stop previous loop if running
+    global_data.calc_TV_times()
+    fan_driver.run_in_loop()
 
 # status
 @sio.event
 def send_status_ac(sid):
     sio.emit('ac_value', global_data.ac_value)
     sio.emit('ac_rate', global_data.ac_rate)
+
     # ToDo: START status
 
 @sio.event

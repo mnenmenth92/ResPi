@@ -1,5 +1,5 @@
 #HW config
-fan_pin = 36
+fan_pin = 40
 
 
 TV_values = {

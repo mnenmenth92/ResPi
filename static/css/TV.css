@@ -59,7 +59,7 @@ outline:none
 }
 
 .button:active {
-background: #b55071;
+background: #fac952;
 
 }
 
@@ -82,7 +82,7 @@ font-weight: bold;
 }
 
 .link_button:active {
-background: #b55071;
+background: #fac952;
 
 }
 
@@ -111,11 +111,11 @@ outline:none
 
 }
 
-.button_start:active {
-background: #b55071;
+
+.active {
+background: #fac952;
 
 }
-
 
 
 
@@ -149,7 +149,7 @@ font-weight: bold;
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  height: 95vh;
+  height: 90vh;
   /* width: 100%; */
   background: linear-gradient(#383838, #616060);
   color: white;

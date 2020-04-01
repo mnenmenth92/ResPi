@@ -10,9 +10,6 @@ from config import (
 
 )
 
-# ToDo: dodac slowniki z wartosciami ac, tv ac rate tv rate.
-# ToDo: dodac indexy tych slownikow
-# ToDo: w eventach ustawiac indexy tutaj wyciagac wartosci i odsylac wartosc do interface
 class global_data:
     def __init__(self, sio):
         #TV
@@ -54,7 +51,7 @@ class global_data:
 
 
     def dec_ac(self):
-        if self.ac_index > 0:
+        if self.ac_index > 1:
             self.ac_index -= 1
             self.ac_value = self.AC_values[self.ac_index]
             self.sio.emit('ac_value', self.ac_value)
@@ -67,7 +64,7 @@ class global_data:
             self.sio.emit('tv_value', self.tv_value)
 
     def dec_tv(self):
-        if self.tv_index > 0:
+        if self.tv_index > 1:
             self.tv_index -= 1
             self.tv_value = self.TV_values[self.tv_index]
             self.sio.emit('tv_value', self.tv_value)
@@ -101,6 +98,13 @@ class global_data:
 
     def calc_AC_times(self):
         period = 60/self.ac_value
+        self.inflation_time = period * self.ac_rate/100
+        self.deflation_time = period - self.inflation_time
+
+    def calc_TV_times(self):
+        self.inflation_time = self.TV_infalte_times[self.tv_index]
+        self.deflation_time = self.inflation_time - self.inflation_time * self.tv_rate/100
+
 
 
 
