@@ -6,6 +6,7 @@ const btn_minus_rate = document.querySelector('.minus_rate');
 const btn_start = document.querySelector('.button_start');
 const ind_val = document.querySelector('.current_value')
 const ind_rate = document.querySelector('.current_rate')
+const link_button = document.querySelector('.change_site');
 var start_state = false
 
 btn_plus.addEventListener('click', function () {
@@ -34,18 +35,14 @@ btn_start.addEventListener('click', function () {
 
     start_state= !start_state;
   console.log(start_state)
-  if(start_state){
-        btn_start.classList.add('active');
-      socket.emit('start_tv')
-      btn_start.textContent = 'STOP'
-  }
-  else{
-    btn_start.classList.remove('active');
-    socket.emit('stop_action')
-    btn_start.textContent = 'START'
-  }
+    set_button_state(start_state)
 
 
+})
+
+link_button.addEventListener('click', function () {
+  console.log('site changed')
+  socket.emit('stop_action')
 })
 
 socket.on('tv_value', (data) => {
@@ -57,3 +54,25 @@ socket.on('tv_value', (data) => {
 socket.on('tv_rate', (data) => {
   ind_rate.textContent = data;
 });
+
+socket.on('start_status', (data) => {
+  console.log('start status')
+    console.log(data)
+    set_button_state(data)
+});
+
+
+function set_button_state(state){
+    start_state = state
+  if(state){
+    btn_start.classList.add('active');
+  socket.emit('start_tv')
+  btn_start.textContent = 'STOP'
+  }
+  else{
+    btn_start.classList.remove('active');
+    socket.emit('stop_action')
+    btn_start.textContent = 'START'
+    }
+
+}

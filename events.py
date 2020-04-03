@@ -74,15 +74,13 @@ def start_tv(sid):
 def send_status_ac(sid):
     sio.emit('ac_value', global_data.ac_value)
     sio.emit('ac_rate', global_data.ac_rate)
-
-    # ToDo: START status
+    sio.emit('start_status', fan_driver.current_state,)
 
 @sio.event
-
 def send_status_tv(sid):
     sio.emit('tv_value', global_data.tv_value)
     sio.emit('tv_rate', global_data.tv_rate)
-    # ToDo: START status
+    sio.emit('start_status', fan_driver.current_state,)
 
 
 #example

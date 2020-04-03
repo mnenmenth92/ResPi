@@ -5,6 +5,8 @@ import time
 class FanDriver:
 
     def __init__(self, global_data):
+        self.state = "high"
+        self.loop_started = time.time()
         self.current_state = False
         self.fan_pin = fan_pin
         self.GPIO = GPIO
@@ -35,31 +37,37 @@ class FanDriver:
         print('inflate time: ' + str(self.time_on))
         print('deflate time: ' + str(self.time_off))
 
-        # loop init
-        state = 'high'
-        loop_started = time.time()
+        # loop init state
+        self.set_state(True)
 
         while self.current_state:
-            if state == 'low':
-                timer = time.time() - loop_started
+            if self.state == 'low':
+                timer = time.time() - self.loop_started
                 if timer > self.time_off:
                     # switch to high and reset timer
-                    print('DO state: HIGH')
-                    self.GPIO.output(self.fan_pin, self.GPIO.HIGH)
-                    loop_started = time.time()
-                    state = 'high'
-            elif state == 'high':
-                timer = time.time() - loop_started
+                    self.set_state(True)
+            elif self.state == 'high':
+                timer = time.time() - self.loop_started
                 if timer > self.time_on:
                     # switch to on and reset timer
-                    print('DO state: LOW')
-                    self.GPIO.output(self.fan_pin, self.GPIO.LOW)
-                    loop_started = time.time()
-                    state = 'low'
+                    self.set_state(False)
             time.sleep(0.1)
 
     def stop_loop(self):
         self.current_state = False
         self.GPIO.output(self.fan_pin, self.GPIO.LOW)
+        
+    def set_state(self, boolean_state):
+        if boolean_state:
+            print('DO state: HIGH')
+            self.GPIO.output(self.fan_pin, self.GPIO.HIGH)
+            self.loop_started = time.time()
+            self.state = 'high'
+        else:
+            print('DO state: LOW')
+            self.GPIO.output(self.fan_pin, self.GPIO.LOW)
+            self.loop_started = time.time()
+            self.state = 'low'
+
 
 
