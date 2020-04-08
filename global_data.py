@@ -33,6 +33,7 @@ class global_data:
         self.inflation_time = 0
         self.deflation_time = 0
         self.rate_step = rate_step
+        self.sequence_type = 'idle'
 
         # frontend connection
         self.sio = sio

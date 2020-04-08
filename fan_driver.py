@@ -18,6 +18,18 @@ class FanDriver:
         # global data
         self.global_data = global_data
 
+    def calc_times(self):
+        sequence_type = self.global_data.sequence_type
+        if sequence_type == 'ac':
+            self.global_data.calc_AC_times()
+        elif sequence_type == 'tv':
+            self.global_data.calc_TV_times()
+
+    def update_times(self):
+        self.calc_times()
+        self.time_on = self.global_data.inflation_time
+        self.time_off = self.global_data.deflation_time
+        print('time on: ' + str(self.time_on) + '\ntime off: ' + str(self.time_off))
 
 
     def set_state(self, boolean_value):
@@ -32,10 +44,8 @@ class FanDriver:
         self.current_state = True
 
         # get global data
-        self.time_on = self.global_data.inflation_time
-        self.time_off = self.global_data.deflation_time
-        print('inflate time: ' + str(self.time_on))
-        print('deflate time: ' + str(self.time_off))
+        self.update_times()
+
 
         # loop init state
         self.set_state(True)
