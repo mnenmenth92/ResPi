@@ -50,7 +50,8 @@ class FanDriver:
                 timer = time.time() - self.loop_started
                 if timer > self.time_on:
                     # switch to on and reset timer
-                    self.set_state(False)
+                    if self.time_off != 0:
+                        self.set_state(False)
             time.sleep(0.1)
 
     def stop_loop(self):
