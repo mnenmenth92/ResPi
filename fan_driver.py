@@ -18,6 +18,7 @@ class FanDriver:
         # global data
         self.global_data = global_data
 
+    # select on and off times
     def calc_times(self):
         sequence_type = self.global_data.sequence_type
         if sequence_type == 'ac':
@@ -25,13 +26,14 @@ class FanDriver:
         elif sequence_type == 'tv':
             self.global_data.calc_TV_times()
 
+    # update on, off times
     def update_times(self):
         self.calc_times()
         self.time_on = self.global_data.inflation_time
         self.time_off = self.global_data.deflation_time
         print('time on: ' + str(self.time_on) + '\ntime off: ' + str(self.time_off))
 
-
+    # set gpio pin
     def set_state(self, boolean_value):
         self.current_state = boolean_value
         if boolean_value:
@@ -39,6 +41,7 @@ class FanDriver:
         else:
             self.GPIO.output(self.fan_pin, self.GPIO.LOW)
 
+    # runs action loop
     def run_in_loop(self):
         # loop run flag
         self.current_state = True
@@ -64,10 +67,12 @@ class FanDriver:
                         self.set_state(False)
             time.sleep(0.1)
 
+    # stops loop
     def stop_loop(self):
         self.current_state = False
         self.GPIO.output(self.fan_pin, self.GPIO.LOW)
-        
+
+    # 
     def set_state(self, boolean_state):
         if boolean_state:
             print('DO state: HIGH')

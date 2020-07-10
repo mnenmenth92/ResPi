@@ -1,7 +1,7 @@
 #HW config
 fan_pin = 40
 
-
+# tv mode levels list
 TV_values = {
    1: 400,
    2: 470,
@@ -10,6 +10,7 @@ TV_values = {
    5: 680
 }
 
+# tv inflate times for specific levels
 TV_inflate_times = {
     1: 3,
     2: 3.5,
@@ -19,6 +20,7 @@ TV_inflate_times = {
 
 }
 
+# ac mode levels list
 AC_values = {
     1: 8,
     2: 9,
@@ -27,6 +29,7 @@ AC_values = {
     5: 12
 }
 
+# default vlues
 ac_rate_bottom_limit = 50
 ac_rate_top_limit = 100
 tv_rate_bottom_limit = 50

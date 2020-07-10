@@ -7,7 +7,7 @@ title = title_ind.textContent
 AC_found = title.search("AC")
 TV_found = title.search("TV")
 
-
+// ask for status e.g. after site change or reload
 console.log(title)
 if (AC_found >= 0) {
   console.log('AC')

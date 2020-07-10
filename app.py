@@ -3,7 +3,7 @@ import eventlet
 from events import sio
 
 
-
+# webpages list
 STATIC_FILES = {
     '/': 'static/html/TV.html',
     '/TV.html': 'static/html/TV.html',
